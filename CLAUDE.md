@@ -30,4 +30,4 @@ Next.js + React + TypeScript, Tailwind CSS, Firebase Auth, Cloud Firestore, Fire
 - Full block-by-block scope, hour estimates, and acceptance tests live in `BUILD_PLAN.md` at the repo root — refer to it, don't duplicate/re-derive scope decisions from memory.
 
 ## Current status
-Block 1 (Authentication) complete — see HANDOVER_BLOCK_1.md. Update this section at the end of every block with: which block just completed, and a one-line pointer to that block's Handover Doc location.
+Block 2 (Data layer) complete — see HANDOVER_BLOCK_2.md. Update this section at the end of every block with: which block just completed, and a one-line pointer to that block's Handover Doc location.
