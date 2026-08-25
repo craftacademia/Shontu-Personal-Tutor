@@ -27,10 +27,10 @@ WHAT'S NOT YET BUILT (explicitly out of scope for this block, deferred to a late
 
 KNOWN ISSUES / THINGS THAT FELT OFF:
 - One manual setup snag: Google Sign-In initially failed with an `auth/operation-not-allowed`
-  error because the Google provider wasn't yet enabled (and a support email wasn't set) in the
-  Firebase console's Authentication > Sign-in method screen. This is a one-time console toggle,
-  not a code issue — now resolved and documented below so it doesn't get missed on any future
-  environment.
+  error. The actual root cause was an empty "Public-facing name for project" field at the
+  project level in the Firebase console's Authentication > Sign-in method screen — this silently
+  blocked the Google provider from saving as enabled. This is a one-time console fix, not a code
+  issue — now resolved and documented below so it doesn't get missed on any future environment.
 
 FILES/FOLDERS ADDED OR CHANGED (high level, not full code):
 - lib/firebase.ts (new) — connects the app to your Firebase project using the config values.
@@ -50,9 +50,9 @@ FILES/FOLDERS ADDED OR CHANGED (high level, not full code):
 ANY MANUAL SETUP STEPS DEBRAJ NEEDS TO REMEMBER (API keys created, accounts set up, names only):
 - Firebase project "shontu-personal-tutor": a web app was registered inside it (this is what the
   .env.local connection values come from).
-- Firebase Authentication was turned on, with Google as the only enabled sign-in provider, and a
-  project support email was set (required for Google sign-in to work at all — this was the thing
-  that caused the one hiccup above).
+- Firebase Authentication was turned on, with Google as the only enabled sign-in provider. The
+  project-level "Public-facing name for project" field also had to be filled in (required for the
+  Google provider to save as enabled at all — this was the thing that caused the one hiccup above).
 - No new GitHub secrets or GCP billing changes — still on the free Spark plan, same as Block 0.
 
 WHAT THE NEXT BLOCK NEEDS TO KNOW TO START:

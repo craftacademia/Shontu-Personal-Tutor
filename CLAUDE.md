@@ -23,6 +23,7 @@ Next.js + React + TypeScript, Tailwind CSS, Firebase Auth, Cloud Firestore, Fire
 8. **Companion Engine ships with 4 states in v1** (idle, correct, encouraging, celebration) — not the fuller animated state set from early scoping. Richer animation is Phase 2.
 
 ## Build method
+- Working directory does not persist between tool calls in this session. Every Bash command must either use absolute paths or be prefixed with `cd /Users/debraj/projects/shontu-personal-tutor &&`. Do not rely on a prior `cd` carrying over to the next command.
 - One block, one session. Each session starts with the relevant section of `BUILD_PLAN.md` (the human-readable block plan) plus the previous block's Handover Doc.
 - Debraj runs commands one at a time and pastes output back — never assume a command succeeded without seeing confirmation.
 - Every block ends with a Handover Doc (template in `BUILD_PLAN.md`) written back into the repo before the session closes.
