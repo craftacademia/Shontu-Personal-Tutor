@@ -94,9 +94,10 @@ You do not need to understand the code. You need to: run the command, paste the 
 **Handover must include:** repo URL, GCP project name, folder structure, any account/API-key setup steps you completed manually (names of keys, not the key values themselves).
 
 ### Block 1 — Authentication
-**Goal:** You (parent) and your son (child) can each log in, and the app knows which role is which.
-**Non-technical acceptance test:** You can create a parent login and a child login, and logging in as each shows a different (even if still empty) screen.
-**Handover must include:** how parent/child roles are distinguished in the data, any login credentials setup notes (not passwords).
+**Goal:** You (parent) log in with Google Sign-In. There is no separate child login — your son uses the app under your session, and his profile is stored as data under your account, not as his own Auth identity.
+**Decision log (final, not a placeholder):** Google Sign-In only — no email/password, no phone auth, to stay on the Firebase Spark (free) plan. Only the parent has a Firebase Auth identity. The child profile is a Firestore sub-record under the parent's UID. Child PIN/login, password reset flows, and role-based permissions are explicitly out of scope for v1.
+**Non-technical acceptance test:** You can sign in with your Google account, stay signed in across a page reload/new session, reach a protected page that a signed-out visitor can't reach, and sign out.
+**Handover must include:** confirmation that the child profile is a Firestore sub-record (not an Auth user), and how the protected-route wrapper works for future pages.
 
 ### Block 2 — Data layer
 **Goal:** Firestore database structured to hold users, lessons, progress, mastery, companion settings, etc. Security rules so a child login can't read/write things it shouldn't.
